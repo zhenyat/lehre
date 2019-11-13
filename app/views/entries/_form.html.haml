@@ -1,0 +1,28 @@
+= simple_form_for(@entry, class: "form-inline") do |f|
+  /= f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  - flash.each do |message_type, message|
+    .alert.alert-success= message
+
+  .row
+    .form-group.col-md-2
+      = f.input :pos,  label: false, autofocus: true
+    .form-group.col-md-1
+      = f.input :art,  label: false
+    .form-group.col-md-3
+      = f.input :de,   label: false, placeholder: 'Deutsch'
+    .form-group.col-md-3
+      = f.input :pl,   label: false, placeholder: 'Plural'
+    .form-group.col-md-3
+      = f.input :trxn, label: false, placeholder: 'Transkription '
+  .row
+    .form-group.col-md-4
+      = f.input :en,   label: false, placeholder: 'Englisch'
+    .form-group.col-md-4
+      = f.input :ru,   label: false, placeholder: 'Russisch'
+
+  .form-actions
+    = f.button :submit, 'Schaffen', id: 'btn', class: 'btn btn-primary'
+    = link_to 'Back', entries_path, class: 'btn btn-info' 
+
+/https://www.verbformen.ru/sklonenie/sushhestvitelnye/?w=Brötchen

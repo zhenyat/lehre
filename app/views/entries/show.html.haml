@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Pos:
+  = @entry.pos
+%p
+  %b Art:
+  = @entry.art
+%p
+  %b De:
+  = @entry.de
+%p
+  %b Trxn:
+  = @entry.trxn
+%p
+  %b Pl:
+  = @entry.pl
+%p
+  %b En:
+  = @entry.en
+%p
+  %b Ru:
+  = @entry.ru
+
+= link_to 'Edit', edit_entry_path(@entry)
+\|
+= link_to 'Back', entries_path

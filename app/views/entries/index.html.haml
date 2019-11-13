@@ -1,0 +1,26 @@
+.row
+  .col-md-8
+    %h1 Einträge auflisten (Listing entries)
+  .col-md-2
+    = link_to 'Neu', new_entry_path, class: 'btn btn-info'
+
+
+%table.table.table.table-hover
+  %thead.head
+    %tr
+      %th De
+      %th Ru
+      %th En
+      %th Teil der Rede
+
+  %tbody
+    - @entries.order(:de).each do |entry|
+      %tr{class: entry.Nomen? ? "noun" : (entry.Verb? ? "verb" : "")}
+        %td
+          %strong= full_notation(entry)
+        %td= entry.ru
+        %td= entry.en
+        %td= entry.pos
+%br
+
+= link_to 'Neu', new_entry_path, class: 'btn btn-info'
