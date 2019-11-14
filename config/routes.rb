@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
+  resources :people
   resources :entries
-#  get :set_search, controller: :entries
 end

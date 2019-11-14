@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_170138) do
+ActiveRecord::Schema.define(version: 2019_11_14_181402) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "pos", limit: 1, default: 6, null: false
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2019_11_12_170138) do
     t.string "pl"
     t.string "en", null: false
     t.string "ru", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "profession"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

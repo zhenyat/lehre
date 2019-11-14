@@ -1,0 +1,18 @@
+= search_form_for @q do |f|
+  = f.label :name_or_profession_cont
+  = f.search_field :name_or_profession_cont
+  = f.submit
+%h2 Result
+%table
+  %thead
+    %tr
+      %th Name
+      %th Profession
+  %tbody
+    - @people.each do |person|
+      %tr
+        %td
+          = person.name
+        %td
+          = person.profession
+

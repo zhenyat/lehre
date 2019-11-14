@@ -7,18 +7,6 @@
     </div>
 </div>
 
-<%=search_form_for @g do |f| %>
-  <%= f.label :de_cont%>
-  <%= f.search_field :de_cont%>
-  <%= f.submit %>
-<%  end %>
-
-<%#=search_form_for @g, remote: true do |f| %>
-  <%#= f.label :de_cont, 'Deutsch' %>
-  <%#= f.search_filed :de_cont, 'Deutsch' %>
-  <%#= f.submkit %>
-<%#  end %>
-
 <%= display_standard_table(
   [
     { :name => 'de',  :display_name => 'Deutsch' },

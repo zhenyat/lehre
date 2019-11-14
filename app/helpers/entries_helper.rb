@@ -59,6 +59,8 @@ module EntriesHelper
           
             row_class = "verb" if elem.Verb?
             row_class = "personalpronoun" if elem.Personalpronoun?
+            row_class = "adjektiv"        if elem.Adjektiv?
+            row_class = "adverb"          if elem.Adverb?
         end 
 
         content_tag :tr do
