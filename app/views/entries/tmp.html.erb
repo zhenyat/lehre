@@ -1,3 +1,22 @@
+<% if entry.Nomen? %>
+  <% case entry.art %>
+  <% when 'der' %>
+    <tr class='der'>
+  <% when 'die' %>
+    <tr class='der'>
+  <% when 'das' %>
+    <tr class='der'>
+  <% else %>
+    <tr>
+  <% end %>
+<% end %>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+  
+    
+    
+    
 <% if flash[:notice] %>
   <div class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert">&times</button>

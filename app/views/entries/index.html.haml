@@ -15,7 +15,7 @@
 
   %tbody
     - @entries.order(:de).each do |entry|
-      %tr{class: entry.Nomen? ? "noun" : (entry.Verb? ? "verb" : "")}
+      %tr{:class => entry.Nomen? ? "noun" : (entry.Verb? ? "verb" : "")}
         %td
           %strong= full_notation(entry)
         %td= entry.ru

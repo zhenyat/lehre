@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.all.order('lower(de)')
   end
 
   # GET /entries/1
@@ -29,7 +29,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        flash[:success] = "Erfolgreich eingereicht"
+        flash[:success] = "Erfolgreich eingereicht (Successfully submitted)"
         format.html {redirect_to action: :new}
 #        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
 #        format.json { render :show, status: :created, location: @entry }
