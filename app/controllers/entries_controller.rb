@@ -1,12 +1,30 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
-
+#  before_action :set_search
+#  before_action :search
+#  before_filter :set_search
+  
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all.order('lower(de)')
+    puts "ZT!-------- #{params[:q]}"
+    if params[:q].present?
+      @q = Entry.search(params[:q])
+      @entries = @q.result
+    else
+      @entries = Entry.all.order('lower(de)')      
+    end
+
+#    @q = Entry.ransack(params[:q])
+#    @q = Entry.ransack(de_cont: params[:q])
+#    @entries = @q.result#(distinct: true).limit(5)
   end
 
+#  def set_search
+#    @q=Entry.ransack(de_cont: params[:q])
+#        @entries = @q.result(distinct: true).limit(5)
+#  end
+  
   # GET /entries/1
   # GET /entries/1.json
   def show

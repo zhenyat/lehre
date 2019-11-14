@@ -130,6 +130,8 @@ gem 'lightbox2-rails'                           # https://github.com/gavinkflam/
 gem 'simple_form'                               # https://github.com/plataformatec/simple_form
 gem 'enum_help'
 
+gem 'ransack'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # Byebug is a Ruby 2 debugger. Call 'byebug' anywhere in the code to stop execution and get a debugger console
                                                       # https://github.com/deivid-rodriguez/byebug
