@@ -4,7 +4,9 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all.order('lower(de)')      
+#    @entries = Entry.order('lower(de)')
+    @q = Entry.order('lower(de)').ransack(params[:q])
+    @entries = @q.result(distinct: true)
   end
  
   # GET /entries/1
