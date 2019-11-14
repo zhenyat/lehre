@@ -8,21 +8,26 @@ body {
 
 .head {
   background-color: darkgray;
- 
+}
+
+.strong {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
+}
+
+.adjektiv {
+  background-color: lightcyan;   
+}
+.adverb {
+  background-color: lightpink;   
 }
 .personalpronoun {
   background-color: lightgreen;
 }
 .verb {
   background-color: lightblue;
-}
-
-.adjektiv {
-  background-color: lightcyan;   
-}
-
-.adverb {
-  background-color: lightpink;   
 }
 
 .masculinum {

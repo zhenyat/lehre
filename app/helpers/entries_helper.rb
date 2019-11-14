@@ -61,13 +61,16 @@ module EntriesHelper
             row_class = "personalpronoun" if elem.Personalpronoun?
             row_class = "adjektiv"        if elem.Adjektiv?
             row_class = "adverb"          if elem.Adverb?
-        end 
+        end
+
+        de_class  = row_class + " strong"
+        pos_class = row_class + " italic"
 
         content_tag :tr do
-          concat content_tag(:td, full_de, class: row_class)
-          concat content_tag(:td, elem.attributes['en'], class: row_class)
-          concat content_tag(:td, elem.attributes['ru'], class: row_class)
-          concat content_tag(:td, elem.attributes['pos'], class: row_class)
+          concat content_tag(:td, full_de, class: de_class)
+          concat content_tag(:td, elem.attributes['en'],  class: row_class)
+          concat content_tag(:td, elem.attributes['ru'],  class: row_class)
+          concat content_tag(:td, elem.attributes['pos'], class: pos_class)
         end
 
       }.join().html_safe
