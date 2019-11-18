@@ -57,6 +57,7 @@ module EntriesHelper
         else
           full_de =  "#{elem.attributes['de']}"
           
+            row_class = "other"
             row_class = "verb" if elem.Verb?
             row_class = "personalpronoun" if elem.Personalpronoun?
             row_class = "adjektiv"        if elem.Adjektiv?
