@@ -56,7 +56,8 @@ module EntriesHelper
           full_de += " (#{elem.attributes['pl']})"   if (!elem.attributes['pl'].nil?  or elem.attributes['pl'].blank?)
         else
           full_de =  "#{elem.attributes['de']}"
-          
+          full_de += " [#{elem.attributes['trxn']}]" if (!elem.attributes['trxn'].nil? and !elem.attributes['trxn'].blank?)
+         
             row_class = "other"
             row_class = "verb" if elem.Verb?
             row_class = "personalpronoun" if elem.Personalpronoun?
