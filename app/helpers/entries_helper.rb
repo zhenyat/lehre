@@ -68,11 +68,13 @@ module EntriesHelper
         pos_class = row_class + " italic"
 
         content_tag :tr do
-          concat content_tag(:td, full_de, class: de_class)
-          concat content_tag(:td, elem.attributes['en'],  class: row_class)
-          concat content_tag(:td, elem.attributes['ru'],  class: row_class)
-          concat content_tag(:td, elem.attributes['pos'], class: pos_class)
-        end
+          concat content_tag :td, full_de, class: de_class
+          concat content_tag :td, elem.attributes['en'],  class: row_class
+          concat content_tag :td, elem.attributes['ru'],  class: row_class
+          concat content_tag :td, elem.attributes['pos'], class: pos_class
+          concat content_tag :td, link_to('Bearbeiten', edit_entry_path(elem)), class: 'btn btn-default btn-sm'
+          concat content_tag :td, elem.samples.count, class: row_class if elem.samples.present?
+          end
 
       }.join().html_safe
     end
