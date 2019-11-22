@@ -1,0 +1,14 @@
+%tr
+  - if f.object.persisted?
+    %td
+      = f.check_box :_destroy
+      = f.label :_destroy, "Destroy"
+      /= f.input_field :_destroy, as: :hidden
+      /%button.btn.btn-dark.btn-sm= link_to 'Delete', '#'
+  - else
+    %td
+
+
+  %td= f.input :name, label: false
+  %td= f.input :nick, label: false
+  %td= f.input :year, label: false

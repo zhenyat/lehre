@@ -1,0 +1,12 @@
+-# frozen_string_literal: true
+= simple_form_for(@person, @kid) do |f|
+
+  .form-inputs
+    = f.association :person
+    = f.input :name
+    = f.input :nick
+    = f.input :year
+
+    = f.hidden_field @person
+  .form-actions
+    = f.button :submit

@@ -16,10 +16,16 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+    3.times do
+      @person.kids.build
+    end
   end
 
   # GET /people/1/edit
   def edit
+#    3.times do
+      @person.kids.build
+#    end
   end
 
   # POST /people
@@ -70,6 +76,7 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:name, :profession)
+#      params.require(:person).permit(:name, :profession, Kid.attribute_names.map(&:to_sym).push(:_destroy))  # not working...
+      params.require(:person).permit(:name, :profession, kids_attributes: [:id, :_destroy, :name, :nick, :year])
     end
 end

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Person:
+  = @kid.person
+%p
+  %b Name:
+  = @kid.name
+%p
+  %b Nick:
+  = @kid.nick
+%p
+  %b Year:
+  = @kid.year
+
+= link_to 'Edit', edit_kid_path(@kid)
+\|
+= link_to 'Back', kids_path

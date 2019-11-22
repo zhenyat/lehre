@@ -7,5 +7,18 @@
     = f.input :name
     = f.input :profession
 
+  %h3 Kids
+  %table.table
+    %thead
+      %tr
+        %th
+        %th Name
+        %th Nick
+        %th Year
+
+    %tbody.fields
+      = f.simple_fields_for :kids do |build|
+        = render 'kid', f: build
+
   .form-actions
     = f.button :submit

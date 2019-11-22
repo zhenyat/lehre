@@ -1,0 +1,27 @@
+%h1 Listing kids
+
+%table
+  %thead
+    %tr
+      %th Person
+      %th Name
+      %th Nick
+      %th Year
+      %th
+      %th
+      %th
+
+  %tbody
+    - @kids.each do |kid|
+      %tr
+        %td= kid.person
+        %td= kid.name
+        %td= kid.nick
+        %td= kid.year
+        %td= link_to 'Show', kid
+        %td= link_to 'Edit', edit_kid_path(kid)
+        %td= link_to 'Destroy', kid, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Kid', new_kid_path
