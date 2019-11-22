@@ -21,8 +21,20 @@
     .form-group.col-md-4
       = f.input :ru,   label: false, placeholder: 'Russisch'
 
+  %h4 Beispiele
+  %table.table
+    %thead
+      %tr
+        %th
+        %th Deutsch*
+        %th Russisch*
+        %th Englisch
+
+    %tbody.fields
+      = f.simple_fields_for :samples do |build|
+        = render 'sample', f: build
+
+
   .form-actions
     = f.button :submit, 'Schaffen', id: 'btn', class: 'btn btn-primary'
     = link_to 'Liste', entries_path, class: 'btn btn-info' 
-
-/https://www.verbformen.ru/sklonenie/sushhestvitelnye/?w=Brötchen

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Entry:
+  = @sample.entry
+%p
+  %b De:
+  = @sample.de
+%p
+  %b En:
+  = @sample.en
+%p
+  %b Ru:
+  = @sample.ru
+
+= link_to 'Edit', edit_sample_path(@sample)
+\|
+= link_to 'Back', samples_path

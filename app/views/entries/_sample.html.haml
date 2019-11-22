@@ -1,0 +1,12 @@
+%tr
+  - if f.object.persisted?
+    %td
+      = f.check_box :_destroy
+      = f.label :_destroy, "Zerstören"
+  - else
+    %td
+
+  %td= f.input :de, label: false
+  %td= f.input :ru, label: false
+  %td= f.input :en, label: false
+

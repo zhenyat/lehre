@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_140540) do
+ActiveRecord::Schema.define(version: 2019_11_22_073251) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "pos", limit: 1, default: 6, null: false
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2019_11_21_140540) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "samples", force: :cascade do |t|
+    t.integer "entry_id", null: false
+    t.string "de", null: false
+    t.string "en"
+    t.string "ru", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entry_id"], name: "index_samples_on_entry_id"
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -69,5 +79,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_140540) do
   end
 
   add_foreign_key "kids", "people"
+  add_foreign_key "samples", "entries"
   add_foreign_key "taggings", "tags"
 end

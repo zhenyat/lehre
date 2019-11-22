@@ -17,11 +17,16 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
-    @today_entries = Entry.where("created_at >= ?", Time.now.utc.strftime('%Y-%m-%d'))
+    5.times do
+      @entry.samples.build
+    end
   end
 
   # GET /entries/1/edit
   def edit
+    (5 - @entry.samples.count).times do
+      @entry.samples.build
+    end
   end
 
   # POST /entries
@@ -74,6 +79,7 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:pos, :art, :de, :trxn, :pl, :en, :ru)
+      params.require(:entry).permit(:pos, :art, :de, :trxn, :pl, :en, :ru, 
+                                    samples_attributes: [:id, :_destroy, :de, :en, :ru])
     end
 end
