@@ -2,15 +2,12 @@
   .col-md-8
     %h1 Einträge auflisten (Listing entries)
   .col-md-2
-    = link_to new_entry_path, class: "btn btn-info" do
-      = "Neu"
-      = fa_icon "plus-square 1x"
- 
+    = link_to 'Neu', new_entry_path, class: 'btn btn-info'
+
 = search_form_for @q do |f|
   /= f.label :de_or_en_or_ru_cont
   = f.search_field :de_or_en_or_ru_cont
-  = f.submit 'suchen'
-
+  = f.submit
 
 = display_standard_table(                                 |
   [                                                       |
@@ -21,6 +18,4 @@
   ],                                                      |
   @entries)                                               |
 .col-md-1
-  = link_to new_entry_path, class: "btn btn-info" do
-    = "Neu"
-    = fa_icon "plus-square 1x"
+  = link_to 'Neu', new_entry_path, class: 'btn btn-info'

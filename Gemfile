@@ -125,6 +125,7 @@ gem 'bootsnap', '>= 1.4.2', require: false      # Reduces boot times through cac
 #gem 'fog'
 
 gem 'bootstrap'                                 # https://github.com/twbs/bootstrap-rubygem
+gem 'font-awesome-rails'
 
 gem 'lightbox2-rails'                           # https://github.com/gavinkflam/lightbox2-rails
 gem 'simple_form'                               # https://github.com/plataformatec/simple_form
