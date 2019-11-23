@@ -53,7 +53,7 @@ module EntriesHelper
           end
           full_de =  "#{elem.attributes['art']} #{elem.attributes['de']}"  
           full_de += " [#{elem.attributes['trxn']}]" if (!elem.attributes['trxn'].nil? and !elem.attributes['trxn'].blank?)
-          full_de += " (#{elem.attributes['pl']})"   if (!elem.attributes['pl'].nil?  or elem.attributes['pl'].blank?)
+          full_de += " (#{elem.attributes['pl']})"   if ((!elem.attributes['pl'].nil?  or elem.attributes['pl'].blank?) and elem.attributes['pl'] != '-')
         else
           full_de =  "#{elem.attributes['de']}"
           full_de += " [#{elem.attributes['trxn']}]" if (!elem.attributes['trxn'].nil? and !elem.attributes['trxn'].blank?)
