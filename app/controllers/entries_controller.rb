@@ -17,14 +17,14 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
-    5.times do
+    4.times do
       @entry.samples.build
     end
   end
 
   # GET /entries/1/edit
   def edit
-    (5 - @entry.samples.count).times do
+    (4 - @entry.samples.count).times do
       @entry.samples.build
     end
   end

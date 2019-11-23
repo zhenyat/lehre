@@ -36,5 +36,10 @@
 
 
   .form-actions
-    = f.button :submit, 'Schaffen', id: 'btn', class: 'btn btn-primary'
-    = link_to 'Liste', entries_path, class: 'btn btn-info' 
+    %button.btn.btn-primary{:type => "submit"}
+      %i.fa.fa-save
+        Schaffen
+
+    = link_to entries_path, class: "btn btn-info" do 
+      = fa_icon "list"
+      = "Liste"
