@@ -4,7 +4,7 @@ class Entry < ApplicationRecord
             reject_if: proc {|attr| attr['de'].blank? or attr['ru'].blank?}
   
   enum pos: %w(Adjektiv Adverb Artikel Ausdruck Interjektion Konjuktion Nomen Numerale Partikel Personalpronoun Präposition Pronomen Verb)
-  enum art: %w(n/a der die das)
+  enum art: %w(Null der die das)
   
   validates :de,   presence: true
   validates :en,   presence: true
