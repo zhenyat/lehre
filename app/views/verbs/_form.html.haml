@@ -1,0 +1,47 @@
+-# frozen_string_literal: true
+= simple_form_for(@verb, class: "form-inline") do |f|
+  /= f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  - flash.each do |message_type, message|
+    .alert.alert-success= message
+
+  .row
+    .form-group.col-md-3
+      = f.input :infinitive, label: false, placeholder: 'Infinitiv'
+    .form-group.col-md-3
+      = f.input :prasens,    label: false, placeholder: 'Präsens '
+    .form-group.col-md-3
+      = f.input :simple,     label: false, placeholder: 'Präteritum'
+    .form-group.col-md-3
+      = f.input :participle, label: false, placeholder: 'Partizip II '
+
+  .row
+    .form-group.col-md-3
+      = f.input :trxn,      label: false, placeholder: 'Transkription '
+    .form-group.col-md-3
+      = f.input :ru,        label: false, placeholder: 'Ru'
+    .form-group.col-md-3
+      = f.input :en,        label: false, placeholder: 'En'
+    .form-group.col-md-2
+      = f.input :aux,       label: false
+  .row
+    .form-group.col-md-1
+      = f.input :strong,    label: 'Starkes'
+    .form-group.col-md-2
+      = f.input :regular,   label: 'Regelmäßiges'
+    .form-group.col-md-1
+      = f.input :modal
+
+  %h4 Beispiele
+  %table.table
+    %tbody.fields
+      = f.simple_fields_for :examples do |build|
+        = render 'example', f: build
+
+  .form-actions
+    %button.btn.btn-primary{:type => "submit"}
+      %i.fa.fa-save
+        Schaffen
+    = link_to verbs_path, class: "btn btn-info" do 
+      = fa_icon "list"
+      = "Liste"

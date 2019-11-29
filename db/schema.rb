@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_073251) do
+ActiveRecord::Schema.define(version: 2019_11_28_084916) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "pos", limit: 1, default: 6, null: false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2019_11_22_073251) do
     t.string "ru", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "examples", force: :cascade do |t|
+    t.integer "verb_id", null: false
+    t.string "de", null: false
+    t.string "en"
+    t.string "ru"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["verb_id"], name: "index_examples_on_verb_id"
   end
 
   create_table "kids", force: :cascade do |t|
@@ -78,6 +88,23 @@ ActiveRecord::Schema.define(version: 2019_11_22_073251) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "verbs", force: :cascade do |t|
+    t.string "infinitive", null: false
+    t.string "prasens", null: false
+    t.string "simple", null: false
+    t.string "participle", null: false
+    t.string "trxn"
+    t.string "ru", null: false
+    t.string "en"
+    t.integer "aux", limit: 1, default: 0
+    t.boolean "strong", default: true
+    t.boolean "regular", default: false
+    t.boolean "modal", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "examples", "verbs"
   add_foreign_key "kids", "people"
   add_foreign_key "samples", "entries"
   add_foreign_key "taggings", "tags"

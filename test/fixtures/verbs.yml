@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  infinitive: MyString
+  simple: MyString
+  participle: MyString
+  ru: MyString
+  en: MyString
+  aux: 1
+  kind: 1
+  irregular: false
+  modal: false
+
+two:
+  infinitive: MyString
+  simple: MyString
+  participle: MyString
+  ru: MyString
+  en: MyString
+  aux: 1
+  kind: 1
+  irregular: false
+  modal: false

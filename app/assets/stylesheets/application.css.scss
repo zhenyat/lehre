@@ -7,6 +7,10 @@ body {
   margin: 20px;
 }
 
+tr:nth-child(even) {
+    background-color: lightsteelblue;
+}
+
 .head {
   background-color: darkgray;
 }
@@ -42,4 +46,8 @@ body {
 }
 .other {
   background-color: lightgray;
+}
+
+.title {
+  background-color: lightcyan;
 }

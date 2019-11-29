@@ -23,17 +23,9 @@
 
   %h4 Beispiele
   %table.table
-    %thead
-      %tr
-        %th
-        %th Deutsch*
-        %th Russisch*
-        %th Englisch
-
     %tbody.fields
       = f.simple_fields_for :samples do |build|
         = render 'sample', f: build
-
 
   .form-actions
     %button.btn.btn-primary{:type => "submit"}

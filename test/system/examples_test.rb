@@ -1,0 +1,49 @@
+require "application_system_test_case"
+
+class ExamplesTest < ApplicationSystemTestCase
+  setup do
+    @example = examples(:one)
+  end
+
+  test "visiting the index" do
+    visit examples_url
+    assert_selector "h1", text: "Examples"
+  end
+
+  test "creating a Example" do
+    visit examples_url
+    click_on "New Example"
+
+    fill_in "De", with: @example.de
+    fill_in "En", with: @example.en
+    fill_in "Ru", with: @example.ru
+    fill_in "Verb", with: @example.verb_id
+    click_on "Create Example"
+
+    assert_text "Example was successfully created"
+    click_on "Back"
+  end
+
+  test "updating a Example" do
+    visit examples_url
+    click_on "Edit", match: :first
+
+    fill_in "De", with: @example.de
+    fill_in "En", with: @example.en
+    fill_in "Ru", with: @example.ru
+    fill_in "Verb", with: @example.verb_id
+    click_on "Update Example"
+
+    assert_text "Example was successfully updated"
+    click_on "Back"
+  end
+
+  test "destroying a Example" do
+    visit examples_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_text "Example was successfully destroyed"
+  end
+end
