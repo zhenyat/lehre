@@ -1,4 +1,3 @@
-/- title = @verb.trxn.blank? ? "#{@verb.infinitive} [#{@verb.trxn}]" : @verb.infinitive 
 %h1.title
   = "#{@verb.infinitive}"
   = "[#{@verb.trxn}]" if @verb.trxn.present?
@@ -7,33 +6,29 @@
     %th= 'Präsens'
     %th= 'Präteritum'
     %th= 'Partizip II'
-    %th= 'Strakes'
-    %th= 'Regelmäßiges'
-    %th= 'Modal'
+    %th= 'Gruppe'
     %th= 'Russisch'
     %th= 'Englisсh'
-  %tbody
+  %tbody.personalpronoun
     %td= @verb.prasens
     %td= @verb.simple
     %td= "#{@verb.aux} #{@verb.participle}"
-    %td= fa_icon("check") if  @verb.strong
-    %td= fa_icon("check") if@verb.regular
-    %td= fa_icon("check") if@verb.modal
+    %td= @verb.group.de
     %td= @verb.ru
     %td= @verb.en
 
 - if @verb.examples.present?
-  %h3 Beispiele
+  %h4.italic Beispiele
   %table.table.table-hover
-    %tbody
-      - @verb.examples.each do |example|
-        %td= example.de
+    - @verb.examples.each do |example|
+      %tbody
+        %td.strong= example.de
         %td= example.ru
         %td= example.en
 
 .row
   .col-md-2
-    = link_to verbs_path, class: "btn btn-info" do 
+    = link_to edit_verb_path, class: "btn btn-info" do 
       = fa_icon "edit"
       = "Bearbeiten"
   .col-md-2

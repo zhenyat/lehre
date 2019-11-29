@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :examples
-  resources :verbs
+  resources :verbs do
+    resources :samples
+  end
   resources :people do
     resources :kids
   end

@@ -1,13 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  verb: one
-  de: MyString
-  ru: MyString
   en: MyString
+  de: MyString
 
 two:
-  verb: two
-  de: MyString
-  ru: MyString
   en: MyString
+  de: MyString

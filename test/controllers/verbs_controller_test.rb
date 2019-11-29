@@ -17,7 +17,7 @@ class VerbsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create verb" do
     assert_difference('Verb.count') do
-      post verbs_url, params: { verb: { aux: @verb.aux, en: @verb.en, infinitive: @verb.infinitive, irregular: @verb.irregular, kind: @verb.kind, modal: @verb.modal, participle: @verb.participle, ru: @verb.ru, simple: @verb.simple } }
+      post verbs_url, params: { verb: { aux: @verb.aux, en: @verb.en, group_id: @verb.group_id, infinitive: @verb.infinitive, participle: @verb.participle, prasens: @verb.prasens, ru: @verb.ru, rule_id: @verb.rule_id, simple: @verb.simple, trxn: @verb.trxn } }
     end
 
     assert_redirected_to verb_url(Verb.last)
@@ -34,7 +34,7 @@ class VerbsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update verb" do
-    patch verb_url(@verb), params: { verb: { aux: @verb.aux, en: @verb.en, infinitive: @verb.infinitive, irregular: @verb.irregular, kind: @verb.kind, modal: @verb.modal, participle: @verb.participle, ru: @verb.ru, simple: @verb.simple } }
+    patch verb_url(@verb), params: { verb: { aux: @verb.aux, en: @verb.en, group_id: @verb.group_id, infinitive: @verb.infinitive, participle: @verb.participle, prasens: @verb.prasens, ru: @verb.ru, rule_id: @verb.rule_id, simple: @verb.simple, trxn: @verb.trxn } }
     assert_redirected_to verb_url(@verb)
   end
 

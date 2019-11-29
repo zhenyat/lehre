@@ -4,10 +4,9 @@ class VerbsController < ApplicationController
   # GET /verbs
   # GET /verbs.json
   def index
-#    @verbs = Verb.all
+#   @verbs = Verb.all
     @q     = Verb.order('lower(infinitive)').ransack(params[:q])
     @verbs = @q.result(distinct: true)
-        puts "----- #{@verbs.count}"
   end
 
   # GET /verbs/1
@@ -20,15 +19,13 @@ class VerbsController < ApplicationController
     @verb = Verb.new
     3.times do
       @verb.examples.build
-    end
-  end
+    end  end
 
   # GET /verbs/1/edit
   def edit
     (3 - @verb.examples.count).times do
       @verb.examples.build
     end
-
   end
 
   # POST /verbs
@@ -79,7 +76,7 @@ class VerbsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def verb_params
-      params.require(:verb).permit(:infinitive, :prasens, :simple, :participle, :trxn, :ru, :en, :aux, :strong, :regular, :modal,
-                                   examples_attributes: [:id, :_destroy, :de, :en, :ru])
+      params.require(:verb).permit(:group_id, :rule_id, :infinitive, :prasens, :simple, :participle, :trxn, :ru, :en, :aux,
+                                    examples_attributes: [:id, :_destroy, :de, :en, :ru])
     end
 end

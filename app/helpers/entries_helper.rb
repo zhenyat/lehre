@@ -34,7 +34,7 @@ module EntriesHelper
   
  
   # https://stackoverflow.com/questions/3863844/rails-how-to-build-table-in-helper-using-content-tag
-  def display_standard_table(columns, collection = {})
+  def display_entries_table(columns, collection = {})
 
     thead = content_tag :thead do
       content_tag :tr do
@@ -74,8 +74,8 @@ module EntriesHelper
           concat content_tag :td, elem.attributes['ru'],  class: row_class
           concat content_tag :td, elem.attributes['pos'], class: pos_class
           concat content_tag :td, link_to((fa_icon "edit 2x"), edit_entry_path(elem)), class: 'btn btn-default btn-sm'
-          #concat content_tag :td, link_to('Bearbeiten', edit_entry_path(elem)), class: 'btn btn-default btn-sm'
-          concat content_tag :td, elem.samples.count, class: row_class if elem.samples.present?
+#          concat content_tag :td, elem.samples.count, class: row_class if elem.samples.present?
+          concat content_tag(:td, link_to((fa_icon "eye 2x"),  entry_path(elem)),  class: 'btn btn-default btn-sm') if elem.samples.present?
         end
 
       }.join().html_safe

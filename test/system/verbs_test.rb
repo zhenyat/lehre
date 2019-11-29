@@ -16,13 +16,14 @@ class VerbsTest < ApplicationSystemTestCase
 
     fill_in "Aux", with: @verb.aux
     fill_in "En", with: @verb.en
+    fill_in "Group", with: @verb.group_id
     fill_in "Infinitive", with: @verb.infinitive
-    check "Irregular" if @verb.irregular
-    fill_in "Kind", with: @verb.kind
-    check "Modal" if @verb.modal
     fill_in "Participle", with: @verb.participle
+    fill_in "Prasens", with: @verb.prasens
     fill_in "Ru", with: @verb.ru
+    fill_in "Rule", with: @verb.rule_id
     fill_in "Simple", with: @verb.simple
+    fill_in "Trxn", with: @verb.trxn
     click_on "Create Verb"
 
     assert_text "Verb was successfully created"
@@ -35,13 +36,14 @@ class VerbsTest < ApplicationSystemTestCase
 
     fill_in "Aux", with: @verb.aux
     fill_in "En", with: @verb.en
+    fill_in "Group", with: @verb.group_id
     fill_in "Infinitive", with: @verb.infinitive
-    check "Irregular" if @verb.irregular
-    fill_in "Kind", with: @verb.kind
-    check "Modal" if @verb.modal
     fill_in "Participle", with: @verb.participle
+    fill_in "Prasens", with: @verb.prasens
     fill_in "Ru", with: @verb.ru
+    fill_in "Rule", with: @verb.rule_id
     fill_in "Simple", with: @verb.simple
+    fill_in "Trxn", with: @verb.trxn
     click_on "Update Verb"
 
     assert_text "Verb was successfully updated"

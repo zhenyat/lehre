@@ -1,27 +1,35 @@
-%p#notice= notice
+%h1.title
+  = "#{@entry.art}" if @entry.art != 'Null'
+  = "#{ @entry.de}"
+  = "[#{ @entry.trxn}]" if @entry.trxn.present?
+%table.table.table-hover
+  %thead
+    %th= 'Deutsch'
+    %th= 'Russisch'
+    %th= 'Englisсh'
+    %th= 'Teil der Rede'
 
-%p
-  %b Pos:
-  = @entry.pos
-%p
-  %b Art:
-  = @entry.art
-%p
-  %b De:
-  = @entry.de
-%p
-  %b Trxn:
-  = @entry.trxn
-%p
-  %b Pl:
-  = @entry.pl
-%p
-  %b En:
-  = @entry.en
-%p
-  %b Ru:
-  = @entry.ru
+  %tbody.personalpronoun
+    %td= @entry.de
+    %td= @entry.ru
+    %td= @entry.en
+    %td= @entry.pos
 
-= link_to 'Edit', edit_entry_path(@entry)
-\|
-= link_to 'Back', entries_path
+- if  @entry.samples.present?
+  %h4.italic Beispiele
+  %table.table.table-hover
+    -  @entry.samples.each do |sample|
+      %tbody
+        %td.strong= sample.de
+        %td= sample.ru
+        %td= sample.en
+
+.row
+  .col-md-2
+    = link_to edit_entry_path, class: "btn btn-info" do 
+      = fa_icon "edit"
+      = "Bearbeiten"
+  .col-md-2
+    = link_to entries_path, class: "btn btn-info" do 
+      = fa_icon "list"
+      = "Liste"

@@ -6,6 +6,13 @@
     .alert.alert-success= message
 
   .row
+    .form-group.col-md-2
+      = f.association :group, label: false, collection: Group.all.map {|g| [g.de, g.id]}, include_blank: false
+    .form-group.col-md-2
+      /= f.association :rule,  label: false, collection: Rule.pluck(:scheme), include_blank: false   # Not working properly??   
+      = f.association :rule,  label: false, collection: Rule.all.map {|r| [r.scheme, r.id]}, include_blank: false
+
+  .row
     .form-group.col-md-3
       = f.input :infinitive, label: false, placeholder: 'Infinitiv'
     .form-group.col-md-3
@@ -24,13 +31,7 @@
       = f.input :en,        label: false, placeholder: 'En'
     .form-group.col-md-2
       = f.input :aux,       label: false
-  .row
-    .form-group.col-md-1
-      = f.input :strong,    label: 'Starkes'
-    .form-group.col-md-2
-      = f.input :regular,   label: 'Regelmäßiges'
-    .form-group.col-md-1
-      = f.input :modal
+
 
   %h4 Beispiele
   %table.table

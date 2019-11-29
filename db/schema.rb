@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_084916) do
+ActiveRecord::Schema.define(version: 2019_11_29_104020) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "pos", limit: 1, default: 6, null: false
@@ -27,11 +27,18 @@ ActiveRecord::Schema.define(version: 2019_11_28_084916) do
   create_table "examples", force: :cascade do |t|
     t.integer "verb_id", null: false
     t.string "de", null: false
-    t.string "en"
     t.string "ru"
+    t.string "en"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["verb_id"], name: "index_examples_on_verb_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "en", null: false
+    t.string "de", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "kids", force: :cascade do |t|
@@ -47,6 +54,14 @@ ActiveRecord::Schema.define(version: 2019_11_28_084916) do
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.string "profession"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.string "scheme", null: false
+    t.string "assoc"
+    t.string "sample"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -89,6 +104,8 @@ ActiveRecord::Schema.define(version: 2019_11_28_084916) do
   end
 
   create_table "verbs", force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "rule_id", null: false
     t.string "infinitive", null: false
     t.string "prasens", null: false
     t.string "simple", null: false
@@ -97,15 +114,16 @@ ActiveRecord::Schema.define(version: 2019_11_28_084916) do
     t.string "ru", null: false
     t.string "en"
     t.integer "aux", limit: 1, default: 0
-    t.boolean "strong", default: true
-    t.boolean "regular", default: false
-    t.boolean "modal", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_verbs_on_group_id"
+    t.index ["rule_id"], name: "index_verbs_on_rule_id"
   end
 
   add_foreign_key "examples", "verbs"
   add_foreign_key "kids", "people"
   add_foreign_key "samples", "entries"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "verbs", "groups"
+  add_foreign_key "verbs", "rules"
 end

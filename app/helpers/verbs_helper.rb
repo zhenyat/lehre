@@ -17,21 +17,20 @@ module VerbsHelper
     end
 
     row_class = 'others'
+    infinite_class  = row_class + " strong"
     
     tbody = content_tag :tbody do
       collection.collect { |elem|
 
-      strong_sign  = elem.strong? ? fa_icon("check") : ''
-      regular_sign = elem.regular ? fa_icon("check-square") : ''
+      # strong_sign  = elem.strong? ? fa_icon("check") : ''
+      # regular_sign = elem.regular ? fa_icon("check-square") : ''
       participle   = "#{elem.attributes['aux']} #{elem.attributes['participle']}" 
       
         content_tag :tr do
-          concat content_tag :td, full_infinitive(elem)#,      class: row_class
+          concat content_tag :td, full_infinitive(elem),      class: infinite_class
           concat content_tag :td, elem.attributes['prasens']#, class: row_class
           concat content_tag :td, elem.attributes['simple']#,  class: row_class
           concat content_tag :td, participle#,                 class: row_class
-          concat content_tag :td, strong_sign#,                class: row_class
-          concat content_tag :td, regular_sign#,               class: row_class
           concat content_tag :td, elem.attributes['ru']#,      class: row_class
           concat content_tag :td, elem.attributes['en']#,      class: row_class
           concat content_tag :td, link_to((fa_icon "edit 2x"), edit_verb_path(elem)), class: 'btn btn-default btn-sm'
@@ -41,8 +40,6 @@ module VerbsHelper
 
       }.join().html_safe
     end
-          #concat content_tag :td, elem.examples.count,        class: row_class if elem.examples.present?
-
     content_tag :table, thead.concat(tbody), class: "table table table-hover"
   end
 end
