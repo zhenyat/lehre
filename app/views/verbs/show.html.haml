@@ -28,7 +28,7 @@
 
     - @verb.conjugations.each do |conjugation|
       %tbody.table-striped
-        %td.strong= conjugation.personal_pronoun
+        %td.font-weight-bold= conjugation.personal_pronoun
         %td= conjugation.present_simple
         %td= conjugation.past_simple
         %td= conjugation.present_perfect
@@ -38,7 +38,7 @@
   %table.table.table-hover.table-bordered
     - @verb.examples.each do |example|
       %tbody
-        %td.strong= example.de
+        %td.font-weight-bold= example.de
         %td= example.ru
         %td= example.en
 

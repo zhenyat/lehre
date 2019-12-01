@@ -65,7 +65,7 @@ module EntriesHelper
             row_class = "adverb"          if elem.Adverb?
         end
 
-        de_class  = row_class + " strong"
+        de_class  = row_class + " font-weight-bold"
         pos_class = row_class + " italic"
 
         content_tag :tr do
