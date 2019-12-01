@@ -19,12 +19,20 @@ class VerbsController < ApplicationController
     @verb = Verb.new
     3.times do
       @verb.examples.build
-    end  end
+    end
+    6.times do
+      @verb.conjugations.build
+#      @personal_pronoun = PersonalPronoun.third
+    end
+  end
 
   # GET /verbs/1/edit
   def edit
     (3 - @verb.examples.count).times do
       @verb.examples.build
+    end
+    (6 - @verb.conjugations.count).times do
+      @verb.conjugations.build
     end
   end
 
@@ -77,6 +85,7 @@ class VerbsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def verb_params
       params.require(:verb).permit(:group_id, :rule_id, :infinitive, :prasens, :simple, :participle, :trxn, :ru, :en, :aux,
-                                    examples_attributes: [:id, :_destroy, :de, :en, :ru])
+                                    examples_attributes: [:id, :_destroy, :de, :en, :ru],
+                                    conjugations_attributes: [:id, :_destroy, :personal_pronoun, :present_simple, :past_simple, :present_perfect])
     end
 end

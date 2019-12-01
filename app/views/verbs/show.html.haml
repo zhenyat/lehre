@@ -1,8 +1,8 @@
 %h1.title
   = "#{@verb.infinitive}"
   = "[#{@verb.trxn}]" if @verb.trxn.present?
-%table.table.table-hover
-  %thead
+%table.table.table-hover.table-bordered
+  %thead.thead-dark
     %th= 'Präsens'
     %th= 'Präteritum'
     %th= 'Partizip II'
@@ -17,9 +17,25 @@
     %td= @verb.ru
     %td= @verb.en
 
+- if @verb.conjugations.present?
+  %h4.italic Konjugationen
+  %table.table.table-hover.table-bordered
+    %thead.thead-dark
+      %th= 'Personal Pronoun'
+      %th= 'Präsens'
+      %th= 'Präteritum'
+      %th= 'Perfekt'
+
+    - @verb.conjugations.each do |conjugation|
+      %tbody.table-striped
+        %td.strong= conjugation.personal_pronoun
+        %td= conjugation.present_simple
+        %td= conjugation.past_simple
+        %td= conjugation.present_perfect
+
 - if @verb.examples.present?
   %h4.italic Beispiele
-  %table.table.table-hover
+  %table.table.table-hover.table-bordered
     - @verb.examples.each do |example|
       %tbody
         %td.strong= example.de

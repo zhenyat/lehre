@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_29_104020) do
+ActiveRecord::Schema.define(version: 2019_12_01_093625) do
+
+  create_table "conjugations", force: :cascade do |t|
+    t.integer "verb_id", null: false
+    t.integer "personal_pronoun", limit: 1, default: 0, null: false
+    t.string "present_simple", null: false
+    t.string "past_simple", null: false
+    t.string "present_perfect", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["verb_id"], name: "index_conjugations_on_verb_id"
+  end
 
   create_table "entries", force: :cascade do |t|
     t.integer "pos", limit: 1, default: 6, null: false
@@ -54,6 +65,14 @@ ActiveRecord::Schema.define(version: 2019_11_29_104020) do
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.string "profession"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "personal_pronouns", force: :cascade do |t|
+    t.string "de", null: false
+    t.string "en", null: false
+    t.string "ru", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -120,6 +139,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_104020) do
     t.index ["rule_id"], name: "index_verbs_on_rule_id"
   end
 
+  add_foreign_key "conjugations", "verbs"
   add_foreign_key "examples", "verbs"
   add_foreign_key "kids", "people"
   add_foreign_key "samples", "entries"

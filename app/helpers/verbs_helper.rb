@@ -13,7 +13,8 @@ module VerbsHelper
     thead = content_tag :thead do
       content_tag :tr do
         columns.collect {|column| concat content_tag(:th, column[:display_name], class: "head")}.join().html_safe
-      end
+        concat content_tag :th, "Aktionen", class: "head"
+        end
     end
 
     row_class       = 'other'

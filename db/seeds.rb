@@ -80,6 +80,7 @@ if Rule.all.empty?
   Rule.create scheme: 'e / ä / ö /ü — o — o',      assoc: 'бЕльмОндО', sample: 'поднимать — heben — hob — gehoben'
   Rule.create scheme: 'a — ie — a',                assoc: 'мАлИнА',    sample: 'жарить — braten — briet — gebraten'
   Rule.create scheme: 'nicht anwendbar'
+  Rule.create scheme: 'nicht definiert'
 end
 
 if Verb.all.empty?
@@ -141,4 +142,13 @@ if Example.all.empty?
   Example.create verb_id: verb_id, de: 'Der Kind wächst schnell.',
                                    ru: 'Ребенок быстро растет.', en: 'he child is growing fast.'
                                  
+end
+
+if PersonalPronoun.all.empty?
+  PersonalPronoun.create de: 'ich',         en: 'I',           ru: 'я'
+  PersonalPronoun.create de: 'du',          en: 'you',         ru: 'ты'
+  PersonalPronoun.create de: 'er, sie, es', en: 'he, she, it', ru: 'он, она, оно'
+  PersonalPronoun.create de: 'wir',         en: 'we',          ru: 'мы'
+  PersonalPronoun.create de: 'ihr',         en: 'you',         ru: 'вы'
+  PersonalPronoun.create de: 'sie, Sie',    en: 'they, You',   ru: 'они, Вы'
 end

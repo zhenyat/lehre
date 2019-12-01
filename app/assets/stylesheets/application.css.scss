@@ -7,12 +7,13 @@ body {
   margin: 20px;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
     background-color: lightsteelblue;
 }
 
 .head {
-  background-color: darkgray;
+  color: white;
+  background-color: black;
 }
 
 .strong {

@@ -32,12 +32,22 @@
     .form-group.col-md-2
       = f.input :aux,       label: false
 
+  %h4 Verbformen
+  %table.table
+    %tbody.fields
 
+      = f.simple_fields_for :conjugations do |c|
+        %tr
+          %td= c.input :personal_pronoun, label: false
+          %td= c.input :present_simple,   label: false, placeholder: 'Präsens'
+          %td= c.input :past_simple,      label: false, placeholder: 'Präteritum'
+          %td= c.input :present_perfect,  label: false, placeholder: 'Perfekt'
+         
   %h4 Beispiele
   %table.table
     %tbody.fields
-      = f.simple_fields_for :examples do |build|
-        = render 'example', f: build
+      = f.simple_fields_for :examples do |example|
+        = render 'example', f: example
 
   .form-actions
     %button.btn.btn-primary{:type => "submit"}

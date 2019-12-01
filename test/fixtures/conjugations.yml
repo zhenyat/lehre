@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  verb: one
+  personal_pronoun: one
+  present_simple: MyString
+  past_simple: MyString
+  present_perfect: MyString
+
+two:
+  verb: two
+  personal_pronoun: two
+  present_simple: MyString
+  past_simple: MyString
+  present_perfect: MyString
