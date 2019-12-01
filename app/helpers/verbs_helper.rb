@@ -16,7 +16,7 @@ module VerbsHelper
       end
     end
 
-    row_class = 'others'
+    row_class       = 'other'
     infinite_class  = row_class + " strong"
     
     tbody = content_tag :tbody do
@@ -25,7 +25,8 @@ module VerbsHelper
       # strong_sign  = elem.strong? ? fa_icon("check") : ''
       # regular_sign = elem.regular ? fa_icon("check-square") : ''
       participle   = "#{elem.attributes['aux']} #{elem.attributes['participle']}" 
-      
+      view_button_class = elem.examples.present? ? "btn btn-default btn-sm verb" : "btn btn-default btn-sm"
+
         content_tag :tr do
           concat content_tag :td, full_infinitive(elem),      class: infinite_class
           concat content_tag :td, elem.attributes['prasens']#, class: row_class
@@ -34,9 +35,8 @@ module VerbsHelper
           concat content_tag :td, elem.attributes['ru']#,      class: row_class
           concat content_tag :td, elem.attributes['en']#,      class: row_class
           concat content_tag :td, link_to((fa_icon "edit 2x"), edit_verb_path(elem)), class: 'btn btn-default btn-sm'
-          concat content_tag(:td, link_to((fa_icon "eye 2x"),  verb_path(elem)),  class: 'btn btn-default btn-sm') if elem.examples.present?
-
-          end
+          concat content_tag(:td, link_to((fa_icon "fas eye 2x"),  verb_path(elem)),  class: view_button_class)
+        end
 
       }.join().html_safe
     end
