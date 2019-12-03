@@ -68,20 +68,31 @@ if Group.all.empty?
   Group.create en: 'modal',     de: 'modal'
 end
 
+# https://www.de-online.ru/gram-tabelle/tablica_Deutsch-online.pdf
 if Rule.all.empty?
-  Rule.create scheme: 'ei — ie — ie / ei — i — i', assoc: 'дАЙкИрИ',   sample: 'писать — sreiben — srieb — gesrieben'
-  Rule.create scheme: 'ie — o — o',                assoc: 'кИмОнО',    sample: 'летать — fliegen — flog — geflogen'
-  Rule.create scheme: 'i — a — o',                 assoc: 'пИфАгОр',   sample: 'побеждать — gewinnen — gewann — gewonnen'
-  Rule.create scheme: 'i — a — u',                 assoc: 'сИрАкУзы',  sample: 'находить — finden — fand — gefunden'
-  Rule.create scheme: 'e — a — o',                 assoc: 'пЕдАгОг',   sample: 'брать — nehmen — nahm — genommen'
-  Rule.create scheme: 'e — a — e',                 assoc: 'тЕрАпЕвт',  sample: 'читать— lesen — las — gelesen'
-  Rule.create scheme: 'i — a — e',                 assoc: 'дИАбЕт',    sample: 'просить — bitten — bat — gebeten'
-  Rule.create scheme: 'a — u — a ',                assoc: 'мАльчУгАн', sample: 'носить — tragen — trug — getragen'
-  Rule.create scheme: 'e / ä / ö /ü — o — o',      assoc: 'бЕльмОндО', sample: 'поднимать — heben — hob — gehoben'
-  Rule.create scheme: 'a — ie — a',                assoc: 'мАлИнА',    sample: 'жарить — braten — briet — gebraten'
+  Rule.create scheme: 'a-i-a',    assoc: 'мАлИнА',    sample: 'ловить — fangen — fing — gefangen'
+  Rule.create scheme: 'a-ie-a',   assoc: 'мАлИнА',    sample: 'жарить — braten — briet — gebraten'
+  Rule.create scheme: 'a-u-a ',   assoc: 'мАльчУгАн', sample: 'носить — tragen — trug — getragen'
+  Rule.create scheme: 'ä-a-o',                        sample: 'рожать — gebären — gebar — geboren'
+  Rule.create scheme: 'ä-o-o',    assoc: 'бЕльмОндО', sample: 'обдумывать — erwägen — erwog — erwogen'
+  Rule.create scheme: 'au-ie-au',                     sample: 'бежать — laufen (läuft) — lief — gelaufen'
+  Rule.create scheme: 'e-a-e',    assoc: 'тЕрАпЕвт',  sample: 'читать — lesen — las — gelesen'
+  Rule.create scheme: 'e-a-o',    assoc: 'пЕдАгОг',   sample: 'брать — nehmen — nahm — genommen'
+  Rule.create scheme: 'e-o-o',    assoc: 'бЕльмОндО', sample: 'поднимать — heben — hob — gehoben'
+  Rule.create scheme: 'ei-i-i',   assoc: 'дАЙкИрИ',   sample: 'резать — schneiden — schnitt — geschnitten'
+  Rule.create scheme: 'ei-ie-ie', assoc: 'дАЙкИрИ',   sample: 'писать — sreiben — srieb — gesrieben'
+  Rule.create scheme: 'ei-ie-ei'
+  Rule.create scheme: 'i-a-o',    assoc: 'пИфАгОр',   sample: 'побеждать — gewinnen — gewann — gewonnen'
+  Rule.create scheme: 'i-a-e',    assoc: 'дИАбЕт',    sample: 'просить — bitten — bat — gebeten'
+  Rule.create scheme: 'i-a-u',    assoc: 'сИрАкУзы',  sample: 'находить — finden — fand — gefunden'
+  Rule.create scheme: 'ie-o-o',   assoc: 'кИмОнО',    sample: 'летать — fliegen — flog — geflogen'
+  Rule.create scheme: 'o-ie-u'
+  Rule.create scheme: 'u-ie-u',                       sample: 'кричать, звать — rufen — rief — gerufen'
+  Rule.create scheme: 'ö-o-o',    assoc: 'бЕльмОндО'
+  Rule.create scheme: 'ü-o-o',    assoc: 'бЕльмОндО', sample: 'лгать - lügen - log - gelog'
   Rule.create scheme: 'nicht anwendbar'
   Rule.create scheme: 'nicht definiert'
-end
+end 
 
 if Verb.all.empty?
   Verb.create group_id: 1, rule_id: 3,    infinitive: 'beginnen',  prasens: 'beginnt',

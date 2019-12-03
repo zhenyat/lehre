@@ -32,13 +32,13 @@ module VerbsHelper
           concat content_tag :td, participle
           concat content_tag :td, elem.attributes['ru']
           concat content_tag :td, elem.attributes['en']
-          concat content_tag :td, link_to((fa_icon "edit 2x"), edit_verb_path(elem)), class: 'btn btn-default btn-sm'
-          concat content_tag(:td, link_to((fa_icon "fas eye 2x"),  verb_path(elem)),  class: view_button_class)
+          concat content_tag :td, link_to((fa_icon "edit 1x"),    edit_verb_path(elem)), class: 'btn btn-default btn-sm'
+          concat content_tag(:td, link_to((fa_icon "fas eye 1x"), verb_path(elem)),      class: view_button_class)
         end
 
       }.join().html_safe
     end
-    content_tag :table, thead.concat(tbody), class: "table table table-hover"
+    content_tag :table, thead.concat(tbody), class: "table-sm table table-hover"
   end
 end
 

@@ -1,6 +1,13 @@
+- flash.each do |message_type, message|
+
+  .alert.alert-success= message
 %h1.title
-  = "#{@verb.infinitive}"
-  = "[#{@verb.trxn}]" if @verb.trxn.present?
+  .row
+    .col-md-6
+      = "#{@verb.infinitive}"
+      = "[#{@verb.trxn}]" if @verb.trxn.present?
+    .col-md-2.scheme
+      = "  #{@verb.rule.scheme}" if (@verb.rule.scheme.present? and @verb.rule.scheme.exclude? "nicht")
 %table.table.table-hover.table-bordered
   %thead.thead-dark
     %th= 'Präsens'
