@@ -26,10 +26,14 @@
 
 .row
   .col-md-2
-    = link_to edit_entry_path, class: "btn btn-info" do 
+    = link_to edit_entry_path, class: "btn btn-primary" do 
       = fa_icon "edit"
       = "Bearbeiten"
   .col-md-2
     = link_to entries_path, class: "btn btn-info" do 
       = fa_icon "list"
       = "Liste"
+  .col-md-2
+    = link_to new_verb_path, class: "btn btn-dark" do
+      = fa_icon "plus-square 1x"
+      = "Neu"

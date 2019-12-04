@@ -53,6 +53,11 @@
     %button.btn.btn-primary{:type => "submit"}
       %i.fa.fa-save
         Schaffen
+
     = link_to verbs_path, class: "btn btn-info" do 
       = fa_icon "list"
       = "Liste"
+
+    -#= link_to new_verb_path, class: "btn btn-dark" do
+      = fa_icon "plus-square 1x"
+      = "Neu"

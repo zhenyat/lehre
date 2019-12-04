@@ -67,15 +67,15 @@ module EntriesHelper
 
         de_class  = row_class + " font-weight-bold"
         pos_class = row_class + " italic"
+        view_button_class = elem.samples.present? ? "btn btn-default btn-sm verb" : "btn btn-default btn-sm"
 
         content_tag :tr do
           concat content_tag :td, full_de, class: de_class
           concat content_tag :td, elem.attributes['en'],  class: row_class
           concat content_tag :td, elem.attributes['ru'],  class: row_class
           concat content_tag :td, elem.attributes['pos'], class: pos_class
-          concat content_tag :td, link_to((fa_icon "edit 2x"), edit_entry_path(elem)), class: 'btn btn-default btn-sm'
-#          concat content_tag :td, elem.samples.count, class: row_class if elem.samples.present?
-          concat content_tag(:td, link_to((fa_icon "eye 2x"),  entry_path(elem)),  class: 'btn btn-default btn-sm') if elem.samples.present?
+          concat content_tag :td, link_to((fa_icon "edit 1x"), edit_entry_path(elem)), class: 'btn btn-default btn-sm'
+          concat content_tag(:td, link_to((fa_icon "fas eye 1x"), entry_path(elem)),   class: view_button_class)
         end
 
       }.join().html_safe
