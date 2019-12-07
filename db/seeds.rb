@@ -63,7 +63,7 @@ end
 
 if Group.all.empty?
   Group.create en: 'strong',    de: 'starke'
-  Group.create en: 'weak',      de: 'schwache'
+  Group.create en: 'regular',   de: 'regulär'
   Group.create en: 'irregular', de: 'irregulär'
   Group.create en: 'modal',     de: 'modal'
 end

@@ -36,13 +36,16 @@
   %table.table
     %tbody.fields
 
+      - pp = Conjugation.personal_pronouns
+      - i = 0
       = f.simple_fields_for :conjugations do |c|
         %tr
-          %td= c.input :personal_pronoun, label: false
+          %td= c.input :personal_pronoun, label: false, selected: pp.key(i)
           %td= c.input :present_simple,   label: false, placeholder: 'Präsens'
           %td= c.input :past_simple,      label: false, placeholder: 'Präteritum'
           %td= c.input :present_perfect,  label: false, placeholder: 'Perfekt'
-         
+          - i += 1
+
   %h4 Beispiele
   %table.table
     %tbody.fields
