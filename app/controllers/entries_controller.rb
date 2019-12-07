@@ -79,7 +79,7 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:pos, :art, :de, :trxn, :pl, :en, :ru, 
+      params.require(:entry).permit(:pos, :art, :de, :trxn, :pl, :en, :ru, :comment, 
                                     samples_attributes: [:id, :_destroy, :de, :en, :ru])
     end
 end

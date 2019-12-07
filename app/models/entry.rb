@@ -4,7 +4,9 @@ class Entry < ApplicationRecord
   accepts_nested_attributes_for :samples, allow_destroy: true, 
             reject_if: proc {|attr| attr['de'].blank? or attr['ru'].blank?}
   
-  enum pos: %w(Adjektiv Adverb Artikel Ausdruck Interjektion Konjuktion Nomen Numerale Partikel Personalpronoun Präposition Pronomen Verb Funktionswort)#.sort
+#  Adjektiv прилагательное, Adverb - наречие, Interjektion -междометие, Konjuktion - союз,
+#  Präposition - предлог, Pronomen - местоимение
+  enum pos: %w(Adjektiv Adverb Artikel Ausdruck Interjektion Konjuktion Nomen Numerale Partikel Personalpronoun Präposition Pronomen Verb Funktionswort)
   enum art: %w(Null der die das)
   
   validates :de,   presence: true
