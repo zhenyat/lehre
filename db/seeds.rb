@@ -92,6 +92,8 @@ if Rule.all.empty?
   Rule.create scheme: 'ü-o-o',    assoc: 'бЕльмОндО', sample: 'лгать - lügen - log - gelog'
   Rule.create scheme: 'nicht anwendbar'
   Rule.create scheme: 'nicht definiert'
+  Rule.create scheme: 'e-i-a',                        sample: 'отправляться — gehen — ging — gegangen'
+
 end 
 
 if Verb.all.empty?
