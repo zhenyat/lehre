@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: redirect('/events')
+  
   resources :verbs do
     resources :samples
     resources :conjungations

@@ -1,0 +1,11 @@
+/ https://www.quackit.com/bootstrap/bootstrap_4/tutorial/bootstrap_navbars.cfm
+.container-fluid
+  %nav.navbar.navbar-expand-sm.navbar-light.bg-faded
+    #nav-content.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.nav-item.dropdown
+          #Preview.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
+            = link_to "#" do
+              %span.fa.fa-language.fa-2x{"aria-hidden" => "true"}
+              = t(:language)
+          = language_switch_bootstrap('front')
