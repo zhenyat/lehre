@@ -55,24 +55,21 @@
 #   18.09.2019  Ruby 2.6.4 / Rails 6.0.0
 #               Gems versions are revised
 #   08.11.2019  Ruby 2.6.5 / Rails 6.0.1
+#   09.06.2021  Ruby 3.0.1 / Rails 6.1.3.2
 ################################################################################
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
-gem 'rails', '6.0.2.1'                        # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '3.0.1'
+gem 'rails', '6.1.3.2'                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
-gem 'sqlite3', '~> 1.4'                         # Use sqlite3    as the database for Active Record
-gem 'seed_dump'                                 # https://github.com/rroblak/seed_dump
+gem 'sqlite3'                                  # Use sqlite3    as the database for Active Record
+gem 'seed_dump'                                # https://github.com/rroblak/seed_dump
 
-gem 'puma'#, '~> 3.11'  - using ~> 4            # Use Puma as the app server (NOT 4
-
+gem 'puma'                                     # Use Puma as the app server (NOT 4
 gem 'sass-rails', '>= 6'
-
 gem 'uglifier'                                  # Use Uglifier as compressor for JavaScript assets
-
-#gem 'webpacker'                                 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-#gem 'react-rails'                               # https://rubygems.org/gems/react-rails/versions/1.7.1
+# gem 'webpacker', '~> 5.x'                      # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 
 #gem 'therubyracer', platforms: :ruby           # Call JavaScript code and manipulate JavaScript objects from Ruby.
                                                 # Call Ruby code and manipulate Ruby objects from JavaScript.
@@ -140,10 +137,10 @@ end
 
 group :development do
 #  gem 'foreman'
-  gem 'web-console'#, '>= 3.3.0'           # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'listen', '>= 3.0.5', '< 3.2'       # https://github.com/guard/listen
+  gem 'web-console'                       # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'listen'                            # https://github.com/guard/listen
   gem 'spring'                            # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring-watcher-listen', '~> 2.0.0' # Makes spring watch files using the listen gem.
+  gem 'spring-watcher-listen'             # Makes spring watch files using the listen gem.
 end
 
 group :test do
