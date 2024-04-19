@@ -55,19 +55,22 @@
 #   18.09.2019  Ruby 2.6.4 / Rails 6.0.0
 #               Gems versions are revised
 #   08.11.2019  Ruby 2.6.5 / Rails 6.0.1
-#   09.06.2021  Ruby 3.0.1 / Rails 6.1.3.2
+#   19.04.2024  Ruby 2.7.8 / Rails 6.1.7.7
 ################################################################################
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
-gem 'rails', '6.1.3.2'                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-
-gem 'sqlite3'                                  # Use sqlite3    as the database for Active Record
-gem 'seed_dump'                                # https://github.com/rroblak/seed_dump
-
-gem 'puma'                                     # Use Puma as the app server (NOT 4
+ruby '2.7.8'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.7'
+gem 'sqlite3', '~> 1.4'
+gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
+gem 'webpacker', '~> 5.0'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.7'
+gem 'seed_dump'                                # https://github.com/rroblak/seed_dump
+gem 'foreman'
+
 gem 'uglifier'                                  # Use Uglifier as compressor for JavaScript assets
 # gem 'webpacker', '~> 5.x'                      # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 
@@ -78,8 +81,6 @@ gem 'mini_racer', platforms: :ruby              # See https://github.com/rails/e
 
 #gem 'coffee-rails', '~> 4.2'      stop         # Use CoffeeScript for .coffee assets and views
 #gem 'jquery-rails'                stop         # Use jquery as the JavaScript library
-gem 'turbolinks'                                # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'jbuilder'                                  # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 #gem 'redis'                                    # Use Redis adapter to run Action Cable in production
 
