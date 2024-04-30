@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: redirect('/events')
+  # root to: redirect('/events')
+  root 'entries#index'
   
   resources :verbs do
     resources :samples
